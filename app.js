@@ -55,3 +55,27 @@ function camelCaseConverter(snakeCase) {
 }
 
 camelCaseConverter(snakeCase)
+
+const objKeyValue = { key1: 'value-1', key2: 'value-two'}
+
+function kebabCaseToSnakeCaseConverter(objKeyValue){
+  let finalArr = [];
+ 
+  for (let values of Object.values(objKeyValue)) {
+    let arr = [];
+    arr.push(values);
+    for (let i=0; i<arr.length; i++) {
+      let wordSplit = arr[i].split('-');
+      console.log(wordSplit)
+      let wordJoin = wordSplit.join('_');
+      console.log("wordJoin:" , wordJoin);
+      finalArr.push(wordJoin);
+    }
+    console.log("finalArr: ", finalArr)
+    objKeyValue['key1'] = finalArr[0];
+    objKeyValue['key2'] = finalArr[1]
+    console.log(objKeyValue);
+  }
+  console.log("objKeyValue: ", objKeyValue)
+  return objKeyValue;
+}
