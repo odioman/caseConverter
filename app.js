@@ -29,3 +29,29 @@ function pascalCaseConverter(snakeCase) {
   return finalArr
 }
 pascalCaseConverter(snakeCase)
+
+const snakeCase = ['snake_case', 'another_example', 'can_be_many_words'];
+
+function camelCaseConverter(snakeCase) {
+  let finalArr = [];
+  for (let i = 0; i < snakeCase.length; i++) {
+    const arr = [];
+    const wordSplit = snakeCase[i].split("_");
+    console.log("wordSplit: ", wordSplit);
+    for (let j = 1; j < wordSplit.length; j++) {
+      const secondWordCap = wordSplit[j][0].toUpperCase();
+      console.log(secondWordCap);
+      const restOfSecondWord = wordSplit[j].slice(1);
+      const joinSecondWord = secondWordCap + restOfSecondWord
+      console.log("joinSecondWord: ", joinSecondWord)
+      arr.push(joinSecondWord);
+    }
+      arr.unshift(wordSplit[0])
+      console.log("arr: ", arr); 
+      finalArr = arr.join(''); 
+      console.log("finalArr: ", finalArr)
+  }  
+  return finalArr
+}
+
+camelCaseConverter(snakeCase)
